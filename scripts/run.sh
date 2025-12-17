@@ -260,6 +260,19 @@ verify() {
   fi
 }
 
+evmVerify() {
+   cd "$REPO_ROOT"
+   transpiler \
+            -m gen-evm-verifier \
+            -i ../src/public-input.json \
+            -t ../template.tbl \
+            -c ../template.crct \
+            -o template \
+            -e pallas  \
+            --optimize-gates
+    cd -
+}
+
 run_all() {
     compile
     run_assigner
@@ -282,6 +295,7 @@ while [[ "$#" -gt 0 ]]; do
         build_statement) SUBCOMMAND=build_statement ;;
         prove) SUBCOMMAND=prove ;;
         verify) SUBCOMMAND=verify ;;
+        evm) SUBCOMMAND=evmVerify ;;
         run_toolchain) SUBCOMMAND=run_toolchain ;;
         run_proof_market_toolchain) SUBCOMMAND=run_proof_market_toolchain ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
