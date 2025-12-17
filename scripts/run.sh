@@ -261,7 +261,7 @@ verify() {
 }
 
 evmVerify() {
-   cd "$REPO_ROOT"
+   cd "$REPO_ROOT/build"
    transpiler \
             -m gen-evm-verifier \
             -i ../src/public-input.json \
