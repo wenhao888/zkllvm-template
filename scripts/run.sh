@@ -151,9 +151,10 @@ build_circuit_params() {
         transpiler \
           -m gen-gate-argument \
           -i ../src/public-input.json \
-          -t template.tbl \
-          -c template.crct \
+          -t ../template.tbl \
+          -c ../template.crct \
           -o template \
+          -e pallas  \
           --optimize-gates
         check_file_exists "$REPO_ROOT/build/template/gate_argument.sol"
         check_file_exists "$REPO_ROOT/build/template/linked_libs_list.json"
@@ -162,8 +163,8 @@ build_circuit_params() {
         transpiler \
           -m gen-circuit-params \
           -i ../src/public-input.json \
-          -t template.tbl \
-          -c template.crct \
+          -t ../template.tbl \
+          -c ../template.crct \
           -o template
         check_file_exists "$REPO_ROOT/build/template/circuit_params.json"
         cd -
