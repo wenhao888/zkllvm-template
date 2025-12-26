@@ -93,7 +93,7 @@ compile() {
     else
         cd "$REPO_ROOT"
         cmake cmake -G "Unix Makefiles" -B ${ZKLLVM_BUILD:-build} -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang-zkllvm \
-            -DCMAKE_CXX_FLAGS="--sysroot=/home/ubuntu/work/zkLLVM/build/result/include -emit-llvm" .
+            -DCMAKE_CXX_FLAGS="--sysroot=/home/ubuntu/work/zkLLVM/build/result/include" .
         VERBOSE=1 make -C ${ZKLLVM_BUILD:-build} template
         cd -
         check_file_exists "$REPO_ROOT/build/src/template.ll"
