@@ -25,7 +25,7 @@ endmacro()
 
 cm_setup_version(VERSION 0.1.0 PREFIX ${CMAKE_WORKSPACE_NAME})
 
-add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/libs/crypto3")
+#add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/libs/crypto3")
 
 #Example directories
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/src")

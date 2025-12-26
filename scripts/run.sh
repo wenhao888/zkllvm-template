@@ -92,8 +92,7 @@ compile() {
         cd -
     else
         cd "$REPO_ROOT"
-        cmake cmake -G "Unix Makefiles" -B ${ZKLLVM_BUILD:-build} -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang-zkllvm  \
-         -DCMAKE_CXX_FLAGS="-std=c++17 -isystem /usr/include/c++/11 -isystem /usr/include/x86_64-linux-gnu/c++/11 -isystem /usr/lib/gcc/x86_64-linux-gnu/11/include -isystem /usr/include"  .
+        cmake cmake -G "Unix Makefiles" -B ${ZKLLVM_BUILD:-build} -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang-zkllvm .
         VERBOSE=1 make -C ${ZKLLVM_BUILD:-build} template
         cd -
         check_file_exists "$REPO_ROOT/build/src/template.ll"
