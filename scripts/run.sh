@@ -92,8 +92,11 @@ compile() {
         cd -
     else
         cd "$REPO_ROOT"
-        cmake cmake -G "Unix Makefiles" -B ${ZKLLVM_BUILD:-build} -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang-zkllvm  \
-            -DCMAKE_CXX_FLAGS="--sysroot=/usr/include" .
+        cmake -G "Unix Makefiles" -B ${ZKLLVM_BUILD:-build} \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_CXX_COMPILER=/home/ubuntu/work/zkLLVM/build/result/bin/clang-zkllvm \
+              -DCMAKE_CXX_FLAGS="--sysroot=$ZKLLVM_SYSROOT \
+                                  -I$ZKLLVM_SYSROOT/include" .
 
         VERBOSE=1 make -C ${ZKLLVM_BUILD:-build} template
         cd -
