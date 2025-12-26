@@ -95,8 +95,7 @@ compile() {
         cmake -G "Unix Makefiles" -B ${ZKLLVM_BUILD:-build} \
               -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_CXX_COMPILER=/home/ubuntu/work/zkLLVM/build/result/bin/clang-zkllvm \
-              -DCMAKE_CXX_FLAGS="--sysroot=$ZKLLVM_SYSROOT \
-                                  -I$ZKLLVM_SYSROOT/include" .
+              -DCMAKE_CXX_FLAGS="--sysroot=/home/ubuntu/zkllvm-sysroot  -I/home/ubuntu/zkllvm-sysroot/include" .
 
         VERBOSE=1 make -C ${ZKLLVM_BUILD:-build} template
         cd -
