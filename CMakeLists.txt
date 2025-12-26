@@ -25,18 +25,8 @@ endmacro()
 
 cm_setup_version(VERSION 0.1.0 PREFIX ${CMAKE_WORKSPACE_NAME})
 
-# --------------------------
-# Skip building Crypto3
-# --------------------------
-# add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/libs/crypto3")
-# Instead, just add its include path
-include_directories(
-        "${CMAKE_CURRENT_LIST_DIR}/libs/crypto3/libs/algebra/include"
-        "${CMAKE_CURRENT_LIST_DIR}/libs/crypto3/libs/multiprecision/include"
-        "${CMAKE_CURRENT_LIST_DIR}/libs/crypto3/libs/marshalling/include"
-        "${CMAKE_CURRENT_LIST_DIR}/libs/crypto3/libs/codec/include"
-        # add any other headers your circuit depends on
-)
+
+add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/libs/crypto3")
 
 #Example directories
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/src")
